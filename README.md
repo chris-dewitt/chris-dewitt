@@ -49,4 +49,3 @@ Part‑time data wizard, full‑time tinkerer. Currently learning to conjure Pyt
 
 ∴ Tune in, stay curious, and don’t trust the blinking cursor — it’s probably sentient.
 
-![Analog Ghost Footer](https://copilot.microsoft.com/th/id/BCO.21a14442-43b1-48d5-9fa6-04cc166dcc26.png)
