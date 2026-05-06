@@ -107,6 +107,7 @@ class Game:
         if state == GameState.FLIGHT:
             self.vec_renderer.draw(self.run_mgr, self.ship)
             self.hud_renderer.draw(self.ship)
+            self._render_sector_hud()
 
         elif state == GameState.TERMINAL:
             self.term_renderer.draw(self.run_mgr.active_terminal)
@@ -118,6 +119,27 @@ class Game:
             self._render_decanting()
 
         pygame.display.flip()
+
+    def _render_sector_hud(self):
+        font  = pygame.font.SysFont("monospace", 14)
+        rm    = self.run_mgr
+        sec_w = S.SCREEN_W
+
+        # Sector number — top centre
+        sec_txt = font.render(
+            f"SECTOR  {rm.sector_num} / {S.SECTORS_PER_RUN}",
+            True, S.GREY_DEAD,
+        )
+        self.screen.blit(sec_txt, (sec_w // 2 - sec_txt.get_width() // 2, 20))
+
+        # Jump status — below sector number
+        if rm.jump_ready:
+            jump_txt = font.render("[ J ]  JUMP READY", True, S.GREEN_TERM)
+        else:
+            jump_txt = font.render(
+                f"JUMP IN  {rm.jump_cooldown:>4.0f}s", True, S.GREY_DEAD,
+            )
+        self.screen.blit(jump_txt, (sec_w // 2 - jump_txt.get_width() // 2, 38))
 
     def _render_decanting(self):
         font = pygame.font.SysFont("monospace", 18)
