@@ -11,8 +11,7 @@ I’m a finance analyst specializing in Asset Liability Management & interest ra
 
 - Bank funding & interest rate modeling  
 - Macro rate strategy & derivatives pricing  
-- Data visualization and scenario analysis  
-- Building sharp tools for finance teams
+- Data visualization and scenario analysis
 
 ### Connect
 
