@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @chris-dewitt
 - 👀 I’m interested in financial markets, politics, & economics 
-- 🌱 I’m currently learning python & SQL
-- 📫 How to reach me: email dewittcn@gmail.com
+- 🌱 I’m currently learning python & SQL for a master's in data science and for use at work
+- 📫 How to reach me: dewittcn@gmail.com
 - 😄 Pronouns: he/him
 
 <!---
