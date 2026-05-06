@@ -1,4 +1,6 @@
-# Chris DeWitt — PROJECT 404: The Lambda Array
+![PROJECT 404: The Lambda Array — Analog Ghost Banner](https://copilot.microsoft.com/th/id/BCO.21a14442-43b1-48d5-9fa6-04cc166dcc26.png)
+
+# PROJECT 404: The Lambda Array
 > “This GitHub belongs to an Earthman, to be precise, who no more knows his destiny than a tea leaf knows the history of the East India Company. His name is Chris DeWitt”
 
 Broadcasting live from a glowing green terminal somewhere in Charlotte, NC.  
@@ -46,3 +48,5 @@ Part‑time data wizard, full‑time tinkerer. Currently learning to conjure Pyt
 ---
 
 ∴ Tune in, stay curious, and don’t trust the blinking cursor — it’s probably sentient.
+
+![Analog Ghost Footer](https://copilot.microsoft.com/th/id/BCO.21a14442-43b1-48d5-9fa6-04cc166dcc26.png)
