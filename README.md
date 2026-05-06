@@ -6,7 +6,6 @@ I’m a finance analyst specializing in Asset Liability Management (ALM) & inter
 
 - A modular ALM dashboard for simulating IRR and EVE impacts under different rate and liquidity scenarios
 - Tools for pricing IRR/FX derivatives with stress-testing and risk attribution
-- Sentiment analysis on FOMC releases
 
 ### Interests
 
