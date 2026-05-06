@@ -1,6 +1,6 @@
 # Hi, I’m Chris DeWitt
 
-I’m a finance analyst specializing in Asset Liability Management (ALM) & interest rate risk (IRR). I'm interested in learning how to develop analytical tools to better understand how rate markets and balance sheet dynamics interact.
+I’m a finance analyst specializing in Asset Liability Management & interest rate risk. I'm interested in learning how to develop analytical tools to better understand how rate markets and balance sheet dynamics interact.
 
 ### What I’m working on
 
