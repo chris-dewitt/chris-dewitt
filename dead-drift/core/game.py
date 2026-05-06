@@ -11,6 +11,7 @@ from bax.bax import Bax
 from renderer.vector_renderer import VectorRenderer
 from renderer.hud_renderer import HUDRenderer
 from renderer.terminal_renderer import TerminalRenderer
+from renderer.cockpit_renderer import CockpitRenderer
 
 
 class Game:
@@ -27,9 +28,10 @@ class Game:
         self.ship    = PlayerShip()
         self.bax     = Bax(self.ship, self.meta)
 
-        self.vec_renderer  = VectorRenderer(self.screen)
-        self.hud_renderer  = HUDRenderer(self.screen)
-        self.term_renderer = TerminalRenderer(self.screen)
+        self.vec_renderer     = VectorRenderer(self.screen)
+        self.hud_renderer     = HUDRenderer(self.screen)
+        self.term_renderer    = TerminalRenderer(self.screen)
+        self.cockpit_renderer = CockpitRenderer(self.screen)
 
         self._wire_events()
 
@@ -87,6 +89,7 @@ class Game:
             self.run_mgr.update(dt)
             self.ship.update(dt)
             self.bax.update(dt)
+            self.cockpit_renderer.update(dt)
 
         elif state == GameState.TERMINAL:
             self.run_mgr.active_terminal.update(dt)
@@ -108,6 +111,7 @@ class Game:
             self.vec_renderer.draw(self.run_mgr, self.ship)
             self.hud_renderer.draw(self.ship)
             self._render_sector_hud()
+            self.cockpit_renderer.draw(pygame.time.get_ticks() / 1000.0)
 
         elif state == GameState.TERMINAL:
             self.term_renderer.draw(self.run_mgr.active_terminal)
