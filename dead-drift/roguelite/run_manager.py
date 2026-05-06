@@ -25,6 +25,7 @@ class RunManager:
         self._active_terminal: Terminal | None = None
         self._sector_timer   = 0.0
         self._sector_dur     = 45.0       # seconds per sector before jump allowed
+        self._ship           = None
 
     # ------------------------------------------------------------------
     def start_run(self, ship):
@@ -56,6 +57,10 @@ class RunManager:
 
         self._sector_timer += dt
         self._sector.gravity.apply_all(self._ship.body)
+
+        cargo = self._ship.cargo
+        if cargo is not None and hasattr(cargo, "update"):
+            cargo.update(dt, self._ship)
 
         for barge in self._barges[:]:
             barge.update(dt)
