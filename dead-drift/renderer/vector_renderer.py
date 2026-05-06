@@ -25,6 +25,7 @@ class VectorRenderer:
         self._draw_gravity_wells(run_mgr, t)
         self._draw_barges(run_mgr, ship)
         self._draw_trail(ship)
+        self._draw_velocity_indicator(ship)
         self._draw_ship(ship)
         self._draw_exhaust(ship, t)
 
@@ -105,6 +106,40 @@ class VectorRenderer:
             if 0 <= gx < S.SCREEN_W and 0 <= gy < S.SCREEN_H:
                 v = max(0, 55 - i * 10)
                 pygame.draw.circle(self.surface, (v - 5, v - 5, v + 8), (gx, gy), max(1, 3 - i // 2))
+
+    def _draw_velocity_indicator(self, ship):
+        """Prograde/retrograde markers — show actual travel direction vs. heading."""
+        if not ship.is_alive:
+            return
+        vel   = ship.body.vel
+        speed = vel.length()
+        if speed < 20:
+            return
+
+        pos  = ship.pos
+        nx   = vel.x / speed      # velocity unit vector
+        ny   = vel.y / speed
+        px_  = -ny                # perpendicular
+        py_  =  nx
+
+        # Prograde: dim blue-grey chevron pointing in direction of travel
+        dist = 30
+        tip  = (int(pos.x + nx * (dist + 5)), int(pos.y + ny * (dist + 5)))
+        arm1 = (int(pos.x + nx * (dist - 4) + px_ * 5),
+                int(pos.y + ny * (dist - 4) + py_ * 5))
+        arm2 = (int(pos.x + nx * (dist - 4) - px_ * 5),
+                int(pos.y + ny * (dist - 4) - py_ * 5))
+        c_pro = (50, 60, 95)
+        pygame.draw.line(self.surface, c_pro, arm1, tip, 1)
+        pygame.draw.line(self.surface, c_pro, arm2, tip, 1)
+
+        # Retrograde: dim red circle, opposite side — "this is your brake target"
+        rx = int(pos.x - nx * dist)
+        ry = int(pos.y - ny * dist)
+        pygame.draw.circle(self.surface, (70, 28, 28), (rx, ry), 4, 1)
+        pygame.draw.line(self.surface, (70, 28, 28),
+                         (rx - int(px_ * 3), ry - int(py_ * 3)),
+                         (rx + int(px_ * 3), ry + int(py_ * 3)), 1)
 
     def _draw_ship(self, ship):
         if not ship.is_alive:
